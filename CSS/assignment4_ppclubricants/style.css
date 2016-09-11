@@ -84,7 +84,7 @@
         background-color:white;
         height:325px;
         margin-left:25px;
-        position:static;
+        position:relative;
     }
     .article p{
         font-size:14px;
@@ -113,4 +113,7 @@
         font-size: 12px;
         margin-left:50px;
         margin-top:50px;
+        position: absolute;
+        right:10px;
+        bottom:10px;
     }
