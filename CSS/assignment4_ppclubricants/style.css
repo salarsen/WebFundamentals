@@ -72,9 +72,13 @@
                 margin-top: 15px;
             }
             #aboutus h3{
-                background-color: #e2ae19;
                 padding: 5px 0px 5px 10px;
                 margin-top:0;
+                background:#e2ae19;/* For browsers that do not support gradients */
+                background:linear-gradient(#d0d00d,#e2ae19);/* standard syntax*/
+                background:-webkit-linear-gradient(#d0d00d,#e2ae19);/* For Safari 5.1 to 6.0 */
+                background:-o-linear-gradient(#d0d00d,#e2ae19);/* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(#d0d00d,#e2ae19); /* For Firefox 3.6 to 15 */
             }
             #aboutus h4{
                 margin: 0 0 0 0;
@@ -117,9 +121,13 @@
             padding:0 10px 0 10px;
         }
         .article h5{
-            background-color:#e2ae19;
-            padding:15px 0 15px 10px;
+            padding:10px 0 10px 10px;
             margin:0 0 0 0;
+            background:#e2ae19;/* For browsers that do not support gradients */
+            background:linear-gradient(#d0d00d,#e2ae19);/* standard syntax*/
+            background:-webkit-linear-gradient(#d0d00d,#e2ae19);/* For Safari 5.1 to 6.0 */
+            background:-o-linear-gradient(#d0d00d,#e2ae19);/* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#d0d00d,#e2ae19); /* For Firefox 3.6 to 15 */
         }
         .article img{
             width:222px;
@@ -140,7 +148,21 @@
             margin-left:50px;
             margin-top:50px;
             position: absolute;
-            right:10px;
+            right:15px;
             bottom:10px;
             text-align: center;
+            width:105px;
+            font-weight: bold;
+        }
+        .article a:after{
+            position:absolute;
+            top:2px;
+            right:-10px;
+            content:"";
+            height:18px;
+            width:18px;
+            background-color: #e2ae19;
+            transform: rotate(45deg);
+            border-right:2px solid black;
+            border-top:2px solid black;
         }
