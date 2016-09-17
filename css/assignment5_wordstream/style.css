@@ -1,0 +1,277 @@
+*{
+
+}
+.wrapper{
+    width:1200px;
+    margin: 0 auto;
+    background:#F2F2F2;/* For browsers that do not support gradients */
+    background:linear-gradient(#F2F2F2,white);/* standard syntax*/
+    background:-webkit-linear-gradient(#F2F2F2,white);/* For Safari 5.1 to 6.0 */
+    background:-o-linear-gradient(#F2F2F2,white);/* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#F2F2F2,white);  /* For Firefox 3.6 to 15 */
+}
+.header{
+    /*background-color: yellow;*/
+    display:block;
+    background:#FCFCFC;
+}
+    .header img{
+        padding:0 10px 0 10px;
+        margin:18px 0 0 0px;
+    }
+    .header h1{
+        display:inline-block;
+        vertical-align: top;
+        margin:31px 0 0 0;
+        color:#838385;
+    }
+    .header h1 span{
+        color:#0680A6;
+    }
+    .header ul{
+        display: inline-block;
+        vertical-align: top;
+        margin:0px 0 0 300px;
+        padding:2px 20px 10px 20px;
+        border-right:1px solid black;
+        border-bottom:1px solid black;
+        border-left:1px solid black;
+        border-bottom-left-radius:5px;
+        border-bottom-right-radius: 5px;
+        background-color: #F9F9F9;
+    }
+    .header ul li{
+        display:inline-block;
+    }
+    .header ul li:not(:last-child){
+        border-right:1px solid black;
+        padding-right:10px;
+    }
+    .header ul li:not(:first-child){
+        padding-left:10px;
+    }
+    .header ul li a{
+        text-decoration: none;
+        color:#A39E9B;
+    }
+    .header #login{
+        display: inline-block;
+        vertical-align: top;
+        text-decoration: none;
+        margin-left:25px;
+        padding:5px 15px 5px 15px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        color:white;
+        background:#3BC1FD;/* For browsers that do not support gradients */
+        background:linear-gradient(#3BC1FD,#017FBA);/* standard syntax*/
+        background:-webkit-linear-gradient(#3BC1FD,#017FBA);/* For Safari 5.1 to 6.0 */
+        background:-o-linear-gradient(#3BC1FD,#017FBA);/* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#3BC1FD,#017FBA); /* For Firefox 3.6 to 15 */
+    }
+    .header h2{
+        margin:0;
+        padding:20px 0 20px 10px;
+        color:white;
+        font-weight: normal;
+        background:#217099;/* For browsers that do not support gradients */
+        background:linear-gradient(#217099,#007CBC,#217099);/* standard syntax*/
+        background:-webkit-linear-gradient(#217099,#007CBC,#217099);/* For Safari 5.1 to 6.0 */
+        background:-o-linear-gradient(#217099,#007CBC,#217099);/* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#217099,#007CBC,#217099); /* For Firefox 3.6 to 15 */
+    }
+.left-content{
+    height: 700px;
+    /*background-color:lightblue;*/
+    display:inline-block;
+    vertical-align: top;
+    width:290px;
+    padding:0 0 0 10px;
+    margin:50px 40px 0 0;
+}
+    .left-content h4{
+        color:#29759C;
+    }
+    .left-content h5{
+        color:red;
+        margin:0;
+        font-weight: bold;
+    }
+    .left-content p{
+        margin-top:0;
+    }
+    .left-content p a{
+        text-decoration: none;
+    }
+    .left-content a:not(:first-child){
+        display:block;
+        text-align: center;
+    }
+    .left-content .ad{
+        margin:30px 10px 0 10px;
+        width:225px;
+        height:274px;
+        background-image: url("images/left_content_ad1.png");
+        background-size: contain;
+        /*box-shadow: inset 10px 10px 5px #888888;*/
+    }
+    .left-content .ad h3{
+        margin:0 0 10px 0;
+        padding:15px 10px 0 10px;
+        color:#256289;
+    }
+    .left-content .ad p{
+        padding: 0 10px 0 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .left-content .ad a{
+        background-color: #1A6899;
+        color:white;
+        border-radius:4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        text-decoration: none;
+        padding:5px 3px 5px 3px;
+        margin:0 15px 0 15px;
+        font-weight: bold;
+        font-size:12px;
+        /*box-shadow: inset 3px 3px 3px #888888;*/
+    }
+    .left-content #arrow1{
+        color:#568FB6;
+    }
+    .left-content #arrow2{
+        color:#98C3DF;
+    }
+    .left-content #arrow3{
+        color:#E8FFFF;
+    }
+    .left-content #sch_demo{
+        padding:10px 10px 10px 10px;
+        margin:0 0 5px 0;
+        color:white;
+        border-radius:5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        font-weight: bold;
+        text-decoration: none;
+        background:#279FDA;/* For browsers that do not support gradients */
+        background:linear-gradient(#279FDA,#037EBF);/* standard syntax*/
+        background:-webkit-linear-gradient(#279FDA,#037EBF);/* For Safari 5.1 to 6.0 */
+        background:-o-linear-gradient(#279FDA,#037EBF);/* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#279FDA,#037EBF); /* For Firefox 3.6 to 15 */
+    }
+    .left-content #free_trial{
+        padding:10px 10px 10px 10px;
+        margin:0 0 5px 0;
+        color:white;
+        border-radius:5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        font-weight: bold;
+        text-decoration: none;
+        background:#FCA244;/* For browsers that do not support gradients */
+        background:linear-gradient(#FCA244,#E54906);/* standard syntax*/
+        background:-webkit-linear-gradient(#FCA244,#E54906);/* For Safari 5.1 to 6.0 */
+        background:-o-linear-gradient(#FCA244,#E54906);/* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#FCA244,#E54906);  /* For Firefox 3.6 to 15 */
+    }
+    .left-content #credit_card{
+        text-align: center;
+        font-size: 14px;
+    }
+.main-content{
+    width:825px;
+    display: inline-block;
+    /*background-color: red;*/
+}
+    #home{
+        display:inline-block;
+        margin:20px 0 0 0;
+        vertical-align: top;
+    }
+    #phone{
+        display:inline-block;
+        margin:20px 10px 0 550px;
+        vertical-align: top;
+    }
+    #homebtn_header{
+        display: inline-block;
+        vertical-align: top;
+        margin:23px 0 0 3px;
+    }
+    .contact_info{
+        display:inline-block;
+        margin:20px 0 0 0;
+        width:150px;
+        vertical-align: top;
+    }
+    .contact_info p{
+        margin:0;
+        font-size:11px;
+    }
+    .contact_info h2{
+        margin:0;
+        color:#39AEDD;
+    }
+    .main-content h3{
+        margin:0;
+        color:#246E95;
+    }
+    .main-content ul li{
+        padding:0 0 15px 0;
+        font-size:14px;
+    }
+    .main-content .main-text{
+        font-size:14px;
+    }
+    .trial-container{
+        border:8px solid #83BCD7;
+        width:775px;
+        height:180px;
+    }
+        .trial-container img{
+            display:inline-block;
+            vertical-align: top;
+            margin:5px 10px 0 0;
+        }
+        .trial-container span{
+            font-weight: bold;
+        }
+        .trial{
+            display: inline-block;
+            width:600px;
+            margin:0;
+            padding:5px 0 0 0;
+        }
+        .trial h2{
+            display:inline-block;
+            margin:0;
+            color:#1173AB;
+            font-size:22px;
+        }
+        .trial p{
+            display:inline-block;
+            font-size:16px;
+        }
+        .trial a{
+            padding:10px 20px 10px 20px;
+            margin:0 0 5px 0;
+            color:white;
+            border-radius:5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            border:2px solid darkgrey;
+            background:#C1DA75;/* For browsers that do not support gradients */
+            background:linear-gradient(#C1DA75,#8FB13A,#C1DA75);/* standard syntax*/
+            background:-webkit-linear-gradient(#C1DA75,#8FB13A,#C1DA75);/* For Safari 5.1 to 6.0 */
+            background:-o-linear-gradient(#C1DA75,#8FB13A,#C1DA75);/* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#C1DA75,#8FB13A,#C1DA75);  /* For Firefox 3.6 to 15 */
+        }
+    .main-content h4{
+        color:#1173AB;
+    }

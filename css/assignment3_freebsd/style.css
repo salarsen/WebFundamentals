@@ -1,0 +1,125 @@
+*{
+    font-family: sans-serif;
+}
+.wrapper{
+    width:970px;
+}
+/* Header CSS */
+.header{
+    background-color:#680000;
+    border-bottom:1px solid #000000;
+    padding:5px 0 0 0;
+}
+    .logo{
+        display: inline-block;
+    }
+    img{
+        display:inline-block;
+        margin:0 0 0 30px;
+    }
+    .titleh1{
+        display:inline-block;
+        margin: 16px 0 0 0;
+        color:white;
+        vertical-align: top;
+    }
+    .search{
+        display:inline-block;
+        margin:0 0 0 50px;
+        font-size:12px;
+        vertical-align: top;
+    }
+    form{
+        text-align:right;
+    }
+    #search-text-field{
+        width:125px;
+        font-size: 10px;
+    }
+    #submit{
+        font-size:10px;
+        background-color:#680000;
+        color:white;
+        border:1px solid white;
+    }
+    .header .search ul li{
+        display:inline;
+    }
+    .header .search a{
+        color:yellow;
+    }
+    .header ul li{
+        color: white;
+    }
+    .search ul{
+        margin:5px 0 10px 0;
+        vertical-align: top;
+    }
+    .header .top-nav{
+        background-color:#eaeaea;
+        border-top:1px solid #000000;
+    }
+    .header .top-nav ul{
+        list-style: none;
+        margin:7px 0 0px 40px;
+        padding:0 0 5px 0;
+        vertical-align:middle;
+        font-size:14px;
+    }
+    .header .top-nav ul li{
+        display:inline;
+    }
+    .header .top-nav ul li a{
+        text-decoration: none;
+        color: #846868;
+    }
+    .header .top-nav li:first-child{
+        padding:0 10px 0 0;
+    }
+    .header .top-nav li~li {
+        border-left: 1px solid #000000;
+        padding:0 10px 0 10px;
+    }
+
+/* Nav CSS */
+.nav-left{
+    background-color: #ecece7;
+    display:inline-block;
+    width:140px;
+    margin: 25px 25px 0 25px;
+    border:1px solid #000000;
+    padding: 0 0 0 25px;
+    vertical-align: top;
+}
+.nav-left ul{
+    padding:0 0 0 0;
+    margin:16px 0 6px 10px;
+    width:110px;
+}
+.nav-left ul li a{
+    font-size:12px;
+    color: red;
+}
+.nav-left ul li{
+    font-size:12px;
+    padding: 0 0 10px 0;
+}
+
+/* Main Content CSS */
+.main-content{
+    display:inline-block;
+    width:680px;
+}
+.main-content a{
+    color:#903838;
+}
+.main-content h4{
+    color:#903838;
+    margin:15px 0 15px 0;
+}
+h3{
+    color:#903838;
+}
+.main-content ul:not(#table-contents){
+    padding:0 0 0 0;
+}
