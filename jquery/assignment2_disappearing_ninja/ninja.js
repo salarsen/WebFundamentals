@@ -5,9 +5,11 @@ $(document).ready(function(){
     }
     $('li').html('<img src="ninja.jpeg" width="50%" alt="Ninja">');
     $('img').click(function(){
+        console.log("hiding a ninja");
         $(this).hide("slow");
     });
     $('button').click(function(){
+        console.log("Suprise ninja attack!");
         $('img').show("slow");
     });
 });
