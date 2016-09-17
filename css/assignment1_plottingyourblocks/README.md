@@ -1,2 +1,0 @@
-# WebFundamentals
-CodingDojo WebFundamentals
