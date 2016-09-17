@@ -1,0 +1,11 @@
+*{
+    margin:0;
+}
+ul li{
+    width:232px;
+    display:inline-block;
+    list-style-type: none;
+}
+button{
+    margin:20px 20px;
+}

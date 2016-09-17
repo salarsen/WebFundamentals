@@ -4,57 +4,41 @@
         <meta charset="utf-8">
         <title>Not Blank</title>
         <link rel="stylesheet" href="style.css">
-        <script   src="http://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#click-btn').click(function(){
-                    console.log("Click-test...");
-                    $('#click-test').text('It seems to have worked!');
-                });
-                $("input").focus(function(){
-                    console.log("Focusing in");
-                    $(this).next("span").css("display","inline");
-                });
-                console.log("Painting the world");
-                $("span").addClass("colorme");
-
-                console.log("Fetching value");
-                $("select").change(function(){
-                    var singlevalue = $("#testvalues").val();
-                    $("#displayval").html(singlevalue);
-                });
-                $("#displayval").html($("#testvalues").val());
-
-                console.log("Fetching data");
-                $("#printattr").text("The default color is:" + $("option").attr("value"));
-            });
-
-        </script>
-        <style>
-            span{
-                display:none;
-            }
-            .colorme{
-                color:red;
-            }
-        </style>
+        <script src="http://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+        <script src="functions.js"></script>
     </head>
     <body>
         <div class="wrapper">
-            <!-- Button Click test -->
-            <p id="click-test">This is a button click test</p>
-            <button id="click-btn">Click to test</button>
-            <!-- focus test & addClass -->
-            <p><input type="text"><span>Maybe you should put something here?</span></p>
-            <!-- val test -->
-            <select id="testvalues">
-                <option selected="selected" value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
-            </select>
-            <p>The current color is: </p><p id="displayval"></p>
-            <p id="printattr"></p>
+            <div id="slide">
+                <!-- Button Click test -->
+                <p id="click-test">This is a button click test</p>
+                <button id="click-btn">Click to test</button>
+                <!-- focus test & addClass -->
+                <p><input type="text"><span>Maybe you should put something here?</span></p>
+                <!-- val test -->
+                <select id="testvalues">
+                    <option selected="selected" value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+                <p>The current color is: </p><p id="displayval"></p>
+                <p id="printattr"></p>
+                <div id="showandtell">
+                    <p id="beforeaftertest">This is the middle.</p>
+                    <button id="addbefore">Add Before</button>
+                    <button id="addafter">Add After</button>
+                    <button id="appenddata">Append some data</button>
+                </div>
+                <p><button id="hidestuff">Hide something</button></p>
+                <p><button id="showstuff">Show stuff</button></p>
+                <p><button id="togglestuff">Toggle</button></p>
+                <p><button id="fadein">Fade In</button></p>
+                <p><button id="fadeout">Fade Out</button></p>
+            </div>
+            <p><button id="slideup">Slide up</button></p>
+            <p><button id="slidedown">Slide down</button></p>
+            <p><button id="slidetoggle">Toggle Slide</button></p>
         </div>
     </body>
 </html>
