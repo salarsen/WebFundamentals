@@ -1,0 +1,33 @@
+*{
+    margin:0;
+}
+table{
+    margin:10px;
+        border: 1px solid black;
+    }
+    thead{
+        border: 1px solid black;
+        width:400px;
+    }
+    th{
+        margin:5px;
+        width:200px;
+    }
+    td{
+        text-align: center;
+    }
+.form{
+    width:300px;
+    }
+    .form h1{
+        margin:10px;
+    }
+    .form hr{
+        margin:10px;
+    }
+    form{
+        text-align: right;
+    }
+    .form p{
+        margin:10px 0 10px 0;
+    }
