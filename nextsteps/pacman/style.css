@@ -1,0 +1,29 @@
+*{
+    margin:0;
+}
+body{
+    background-color: black;
+}
+    div.row div{
+        width:20px;
+        height:20px;
+        display:inline-block;
+    }
+    div.brick{
+        background-color:blue;
+    }
+    div.coin{
+        background: url('coin.gif') no-repeat center;
+    }
+    div.pacman{
+        background: url('pacman.gif') no-repeat center;
+        background-size: 16px 16px;
+    }
+    div.score{
+        border:1px solid white;
+        width: 30px;
+        height: 30px;
+        color: white;
+        text-align:center;
+        padding: 5px 7px;
+    }
