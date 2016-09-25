@@ -4,6 +4,9 @@
 body{
     background-color: black;
 }
+    div.world{
+        width:650px;
+    }
     div.row div{
         width:20px;
         height:20px;
@@ -13,10 +16,24 @@ body{
         background-color:blue;
     }
     div.coin{
-        background: url('coin.gif') no-repeat center;
+        background: url('images/Dot-icon.png') no-repeat center;
+        background-size: 16px 16px;
     }
     div.pacman{
-        background: url('pacman.gif') no-repeat center;
+        background: url('images/pacman.gif') no-repeat center;
+        background-size: 16px 16px;
+    }
+    div.ghost{
+        background: url('images/ghost-yellow.gif') no-repeat center;
+        background-size: 16px 16px;
+    }
+    div.ghostEdible{
+        background: url('images/ghost-blue.gif') no-repeat center;
+        background-size: 16px 16px;
+
+    }
+    div.cherry{
+        background: url('images/cherry.png') no-repeat center;
         background-size: 16px 16px;
     }
     div.score{
@@ -26,4 +43,14 @@ body{
         color: white;
         text-align:center;
         padding: 5px 7px;
+        display: inline-block;
+    }
+    div.lives{
+        border:1px solid white;
+        width: 60px;
+        height: 30px;
+        color: white;
+        text-align:center;
+        padding: 5px 7px;
+        display: inline-block;
     }
