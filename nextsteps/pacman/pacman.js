@@ -84,7 +84,6 @@ $(document).ready(function(){
             start_col = Math.floor(Math.random()*(world[0].length - 2)) + 1;
         }
         if(checkSpawn(world[start_row][start_col])){
-            console.log("Spawning player: " + player.id)
             world[start_row][start_col] = player.id;
             player.row = start_row;
             player.col = start_col;
@@ -101,9 +100,8 @@ $(document).ready(function(){
             delta_col = Math.abs(pacman.col - start_col);
         }
         if(checkSpawn(world[start_row][start_col]) && delta_col >= 4){
-            console.log("Col delta: " + delta_col);
-            console.log("Spawning ghost: " + ghost_num.id)
             world[start_row][start_col] = ghost_num.id;
+            ghost_num.stored_id = 0;
             ghost_num.row = start_row;
             ghost_num.col = start_col;
         }
@@ -159,8 +157,8 @@ $(document).ready(function(){
             displayWorld(world);
         }
         if(e.keyCode == 40){ //arrow down
-            if(pacman.row + 1 < world.length && world[pacman.row + 1][pacman.col] !== 2){ // verify we can move and have not reached the end
-                if(world[pacman.row + 1][pacman.col] === 1 || world[pacman.row +1][pacman.col] === 4){
+            if(pacman.row + 1 < world.length && checkDown(pacman,[-1,-2,2])){ // verify we can move and have not reached the end
+                if(!checkDown(pacman,[1]) || !checkDown(pacman,[4])){
                     updateScore(world[pacman.row + 1][pacman.col]);
                 } else if(world[pacman.row + 1][pacman.col] > 4){
                     //we've hit a ghost so do stuff
@@ -171,8 +169,8 @@ $(document).ready(function(){
                 superMoveDown(pacman);
             }
         } else if (e.keyCode == 38){ // arrow up
-            if(pacman.row - 1 >= 0 && world[pacman.row - 1][pacman.col] !== 2){
-                if(world[pacman.row - 1][pacman.col] == 1 || world[pacman.row - 1][pacman.col] === 4){
+            if(pacman.row - 1 >= 0 && checkUp(pacman,[-1,-2,2])){
+                if(!checkUp(pacman,[-1]) || !checkUp(pacman,[4])){
                     updateScore(world[pacman.row - 1][pacman.col]);
                 } else if(world[pacman.row - 1][pacman.col] > 4){
                     //we've hit a ghost so do stuff
@@ -183,8 +181,8 @@ $(document).ready(function(){
                 superMoveUp(pacman);
             }
         } else if (e.keyCode == 39){ //arrow right
-            if(pacman.col + 1 < world[pacman.row].length && world[pacman.row][pacman.col + 1] !== 2){
-                if(world[pacman.row][pacman.col + 1] == 1 || world[pacman.row][pacman.col + 1] === 4){
+            if(pacman.col + 1 < world[pacman.row].length && checkRight(pacman,[-2,-1,2])){
+                if(!checkRight(pacman,[1]) || !checkRight(pacman,[4])){
                     updateScore(world[pacman.row][pacman.col + 1]);
                 } else if(world[pacman.row][pacman.col + 1] > 4){
                     //we've hit a ghost so do stuff
@@ -195,8 +193,8 @@ $(document).ready(function(){
                 superMoveRight(pacman);
             }
         } else if (e.keyCode == 37){ //arrow left
-            if(pacman.col - 1 >= 0 && world[pacman.row][pacman.col - 1] !== 2){
-                if(world[pacman.row][pacman.col - 1] == 1 || world[pacman.row][pacman.col - 1] === 4){ //we found a coin, update score
+            if(pacman.col - 1 >= 0 && checkLeft(pacman,[-2,-1,2])){
+                if(!checkLeft(pacman,[1]) || !checkLeft(pacman,[4])){ //we found a coin, update score
                     updateScore(world[pacman.row][pacman.col - 1]);
                 } else if(world[pacman.row][pacman.col - 1] > 4){
                     //we've hit a ghost so do stuff
@@ -207,8 +205,8 @@ $(document).ready(function(){
                 superMoveLeft(pacman);
             }
         } else if(e.keyCode == 65){ // a keyCode//arrow left
-            if(pacman2.col - 1 >= 0 && world[pacman2.row][pacman2.col - 1] !== 2){
-                if(world[pacman2.row][pacman2.col - 1] == 1 || world[pacman2.row][pacman2.col - 1] === 4){ //we found a coin, update score
+            if(pacman2.col - 1 >= 0 && checkLeft(pacman2,[-2,-1,2])){
+                if(!checkLeft(pacman2,[1]) || !checkLeft(pacman2,[4])){ //we found a coin, update score
                     updateScore(world[pacman2.row][pacman2.col - 1]);
                 } else if(world[pacman2.row][pacman2.col - 1]  > 4){
                     //we've hit a ghost so do stuff
@@ -220,8 +218,8 @@ $(document).ready(function(){
             }
 
         } else if(e.keyCode == 87){ // arrow up
-            if(pacman2.row - 1 >= 0 && world[pacman2.row - 1][pacman2.col] !== 2){
-                if(world[pacman2.row - 1][pacman2.col] == 1 || world[pacman2.row - 1][pacman2.col] === 4){
+            if(pacman2.row - 1 >= 0 && checkUp(pacman2,[-2,-1,2])){
+                if(!checkUp(pacman2,[1]) || !checkUp(pacman2,[4])){
                     updateScore(world[pacman2.row - 1][pacman2.col]);
                 } else if(world[pacman2.row - 1][pacman2.col]  > 4){
                     //we've hit a ghost so do stuff
@@ -233,8 +231,8 @@ $(document).ready(function(){
             }
 
         } else if(e.keyCode == 83){//arrow down
-            if(pacman2.row + 1 < world.length && world[pacman2.row + 1][pacman2.col] !== 2){ // verify we can move and have not reached the end
-                if(world[pacman2.row + 1][pacman2.col] === 1 || world[pacman2.row +1][pacman2.col] === 4){
+            if(pacman2.row + 1 < world.length && checkDown(pacman2,[-2,-1,2])){ // verify we can move and have not reached the end
+                if(!checkDown(pacman2,[1]) || !checkDown(pacman2,[4])){
                     updateScore(world[pacman2.row + 1][pacman2.col]);
                 } else if(world[pacman2.row + 1][pacman2.col]  > 4){
                     //we've hit a ghost so do stuff
@@ -246,8 +244,8 @@ $(document).ready(function(){
             }
 
         } else if(e.keyCode == 68){//arrow right
-            if(pacman2.col + 1 < world[pacman2.row].length && world[pacman2.row][pacman2.col + 1] !== 2){
-                if(world[pacman2.row][pacman2.col + 1] == 1 || world[pacman2.row][pacman2.col + 1] === 4){
+            if(pacman2.col + 1 < world[pacman2.row].length && checkRight(pacman2,[-2,-1,2])){
+                if(!checkRight(pacman2,[1]) || !checkRight(pacman2,[4])){
                     updateScore(world[pacman2.row][pacman2.col + 1]);
                 } else if(world[pacman2.row][pacman2.col + 1]  > 4){
                     //we've hit a ghost so do stuff
@@ -347,7 +345,9 @@ $(document).ready(function(){
             updateScore(3);
         } else if (ghost_status === 0) { // aw crap we lost a life, respawn if not at 0
             world[pacman.row][pacman.col] = 0;
-            world[pacman2.row][pacman2.col] = 0;
+            if(pacman2.row !== 0 && pacman2.col !== 0){
+                world[pacman2.row][pacman2.col] = 0;
+            }
             world[ghost1.row][ghost1.col] = 0;
             setPacStart(pacman);
             setGhostStart(ghost1);
@@ -384,7 +384,6 @@ $(document).ready(function(){
         creature.row -= 1;
         displayWorld(world);
         if(creature.id < 0){
-            console.log("Move up -" + creature.target);
             rotatePacman(creature,-90);
         }
     }
