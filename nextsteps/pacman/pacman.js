@@ -38,7 +38,7 @@ $(document).ready(function(){
     ];
     //pacman positioning array (make sure to pop values and call displayWorld)
     var pacman = {
-        cr_id : -1,
+        id : -1,
         row : 0,
         col : 0,
         active : true,
@@ -46,7 +46,7 @@ $(document).ready(function(){
     };
 
     var pacman2 = {
-        cr_id : -2,
+        id : -2,
         row : 0,
         col : 0,
         active : false,
@@ -54,7 +54,7 @@ $(document).ready(function(){
     }
 
     var ghost1 = {
-        cr_id : 5,
+        id : 5,
         row : 0,
         col : 0,
         stored_id : 1,
@@ -62,7 +62,7 @@ $(document).ready(function(){
         direction : 0,
     };
     var ghost2 = {
-        cr_id : 6,
+        id : 6,
         row : 0,
         col : 0,
         stored_id : 1,
@@ -84,8 +84,8 @@ $(document).ready(function(){
             start_col = Math.floor(Math.random()*(world[0].length - 2)) + 1;
         }
         if(checkSpawn(world[start_row][start_col])){
-            console.log("Spawning player: " + player.cr_id)
-            world[start_row][start_col] = player.cr_id;
+            console.log("Spawning player: " + player.id)
+            world[start_row][start_col] = player.id;
             player.row = start_row;
             player.col = start_col;
         }
@@ -102,8 +102,8 @@ $(document).ready(function(){
         }
         if(checkSpawn(world[start_row][start_col]) && delta_col >= 4){
             console.log("Col delta: " + delta_col);
-            console.log("Spawning ghost: " + ghost_num.cr_id)
-            world[start_row][start_col] = ghost_num.cr_id;
+            console.log("Spawning ghost: " + ghost_num.id)
+            world[start_row][start_col] = ghost_num.id;
             ghost_num.row = start_row;
             ghost_num.col = start_col;
         }
@@ -261,12 +261,12 @@ $(document).ready(function(){
         }
     }
 
-    //setInterval(function(){
-    //    ghostMove(ghost1);
-    //    if(lives < 1){
-    //        clearInterval();
-    //    }
-    //},500);
+    setInterval(function(){
+        ghostMove(ghost1);
+        if(lives < 1){
+            clearInterval();
+        }
+    },500);
 
     function ghostMove(ghost_num){
         // movement: 1 = left; 2 = right; 3 = up; 4 = down
@@ -371,7 +371,7 @@ $(document).ready(function(){
     function moveUp(creature){
         world[creature.row][creature.col] = 0;
         var prev_id = 0;
-        if(creature.cr_id > 4){
+        if(creature.id > 4){
 
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row - 1][creature.col];
@@ -380,10 +380,10 @@ $(document).ready(function(){
             }
             world[creature.row][creature.col] = prev_id;
         }
-        world[creature.row - 1][creature.col] = creature.cr_id;
+        world[creature.row - 1][creature.col] = creature.id;
         creature.row -= 1;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             console.log("Move up -" + creature.target);
             rotatePacman(creature,-90);
         }
@@ -391,11 +391,11 @@ $(document).ready(function(){
 
     // move creature from bottom to top
     function superMoveUp(creature){
-        world[world.length - 1][creature.col] = creature.cr_id;
+        world[world.length - 1][creature.col] = creature.id;
         world[0][creature.col] = 0;
         creature.row = world.length - 1;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             rotatePacman(creature,-90);
         }
     }
@@ -404,7 +404,7 @@ $(document).ready(function(){
     function moveDown(creature){
         world[creature.row][creature.col] = 0;
         var prev_id = 0;
-        if(creature.cr_id > 4){
+        if(creature.id > 4){
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row + 1][creature.col];
             if(world[creature.row + 1][creature.col] == -1){
@@ -412,21 +412,21 @@ $(document).ready(function(){
             }
             world[creature.row][creature.col] = prev_id;
         }
-        world[creature.row + 1][creature.col] = creature.cr_id;
+        world[creature.row + 1][creature.col] = creature.id;
         creature.row += 1;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             rotatePacman(creature,90);
         }
     }
 
     // move creature from top to bottom
     function superMoveDown(creature){
-        world[0][creature.col] = creature.cr_id;
+        world[0][creature.col] = creature.id;
         world[world.length - 1][creature.col] = 0;
         creature.row = 0;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             rotatePacman(creature,90);
         }
     }
@@ -435,7 +435,7 @@ $(document).ready(function(){
     function moveLeft(creature){
         world[creature.row][creature.col] = 0;
         var prev_id = 0;
-        if(creature.cr_id > 4){
+        if(creature.id > 4){
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row][creature.col - 1];
             if(world[creature.row][creature.col - 1] == -1){
@@ -443,21 +443,21 @@ $(document).ready(function(){
             }
             world[creature.row][creature.col] = prev_id;
         }
-        world[creature.row][creature.col - 1] = creature.cr_id;
+        world[creature.row][creature.col - 1] = creature.id;
         creature.col -= 1;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             rotatePacman(creature,180);
         }
     }
 
     // move creature from left to far right
     function superMoveLeft(creature){
-        world[creature.row][world[creature.row].length - 1] = creature.cr_id;
+        world[creature.row][world[creature.row].length - 1] = creature.id;
         world[creature.row][0] = 0;
         creature.col = world[creature.row].length - 1;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             rotatePacman(creature,180);
         }
     }
@@ -466,7 +466,7 @@ $(document).ready(function(){
     function moveRight(creature){
         world[creature.row][creature.col] = 0;
         var prev_id = 0;
-        if(creature.cr_id > 4){
+        if(creature.id > 4){
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row][creature.col + 1];
             if(world[creature.row][creature.col + 1] == -1){
@@ -474,10 +474,10 @@ $(document).ready(function(){
             }
             world[creature.row][creature.col] = prev_id;
         }
-        world[creature.row][creature.col + 1] = creature.cr_id;
+        world[creature.row][creature.col + 1] = creature.id;
         creature.col += 1;
         displayWorld(world);
-        if(creature.cr_id < 0){
+        if(creature.id < 0){
             rotatePacman(creature,0);
         }
     }
@@ -521,7 +521,7 @@ $(document).ready(function(){
         } else if(value === 3){
             score += ghost_pt;
             world[ghost1.row][ghost1.col] = 0;
-            setGhostStart();
+            setGhostStart(ghost1);
             displayWorld(world);
         }
         $('div.score').html(score);
