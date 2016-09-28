@@ -1,5 +1,6 @@
 *{
     margin:0;
+    line-height: 0px;
 }
 body{
     background-color: black;
@@ -44,18 +45,16 @@ body{
     div.score{
         border:1px solid white;
         width: 30px;
-        height: 30px;
         color: white;
         text-align:center;
-        padding: 5px 7px;
+        padding: 15px 7px 15px 7px;
         display: inline-block;
     }
     div.lives{
         border:1px solid white;
         width: 60px;
-        height: 30px;
         color: white;
         text-align:center;
-        padding: 5px 7px;
+        padding: 15px 7px;
         display: inline-block;
     }

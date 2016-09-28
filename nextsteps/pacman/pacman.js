@@ -169,7 +169,7 @@ $(document).ready(function(){
                 superMoveDown(pacman);
             }
         } else if (e.keyCode == 38){ // arrow up
-            if(pacman.row - 1 >= 0 && checkUp(pacman,[-1,-2,2])){
+            if(pacman.row - 1 >= 0 && checkUp(pacman,[-2,-1,2])){
                 if(!checkUp(pacman,[-1]) || !checkUp(pacman,[4])){
                     updateScore(world[pacman.row - 1][pacman.col]);
                 } else if(world[pacman.row - 1][pacman.col] > 4){
@@ -259,6 +259,7 @@ $(document).ready(function(){
         }
     }
 
+    //start ghost movement
     setInterval(function(){
         ghostMove(ghost1);
         if(lives < 1){
@@ -266,6 +267,7 @@ $(document).ready(function(){
         }
     },500);
 
+    // ghost movement
     function ghostMove(ghost_num){
         // movement: 1 = left; 2 = right; 3 = up; 4 = down
         if(ghost_num.movement_counter < 1){
@@ -295,6 +297,7 @@ $(document).ready(function(){
         }
     };
 
+    // check space down is available to move to
     function checkDown(creature,arr){
         var check = true;
         for(var i = 0; i < arr.length; i++){
@@ -306,6 +309,7 @@ $(document).ready(function(){
         }
         return check;
     }
+    // check space up is available to move to
     function checkUp(creature,arr){
         var check = true;
         for(var i = 0; i < arr.length; i++){
@@ -317,6 +321,7 @@ $(document).ready(function(){
         }
         return check;
     }
+    // check space left is available to move to
     function checkLeft(creature,arr){
         var check = true;
         for(var i = 0; i < arr.length; i++){
@@ -328,6 +333,7 @@ $(document).ready(function(){
         }
         return check;
     }
+    // check space right is available to move to
     function checkRight(creature,arr){
         var check = true;
         for(var i = 0; i < arr.length; i++){
@@ -340,6 +346,7 @@ $(document).ready(function(){
         return check;
     }
 
+    // we hit a ghost, eat it or be eaten
     function ghostHit(){
         if(ghost_status === 1){ // we can eat the ghost!
             updateScore(3);
@@ -357,6 +364,7 @@ $(document).ready(function(){
         }
     }
 
+    // looks like we will be eaten
     function loseLife(){
         lives -= 1;
         if(lives < 1){
@@ -491,6 +499,7 @@ $(document).ready(function(){
         rotatePacman(creature,0);
     }
 
+    // set ghost is edible state
     function edible(){
         ghost_status = 1;
         displayWorld(world);
@@ -499,6 +508,8 @@ $(document).ready(function(){
             displayWorld(world);
         },6000);
     };
+
+    //rotate pacman images
     function rotatePacman(creature,angle){
         $(creature.target).css('transform','rotate(' + angle + 'deg)');
         $(creature.target).css('-webkit-tranform','rotate(' + angle + 'deg)');
@@ -507,6 +518,7 @@ $(document).ready(function(){
         $(creature.target).css('-o-transform','rotate(' + angle + 'deg)');
     };
 
+    // update score
     function updateScore(value){
         if(score > 2210){
             alert("You Won!");
@@ -526,6 +538,8 @@ $(document).ready(function(){
         }
         $('div.score').html(score);
     };
+
+    // self-explained (reset)
     function gameOver(){
         $('.lives').html("Lives: 3");
         $('.score').html("0");
