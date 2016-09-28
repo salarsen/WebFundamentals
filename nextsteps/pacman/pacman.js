@@ -345,10 +345,11 @@ $(document).ready(function(){
             updateScore(3);
         } else if (ghost_status === 0) { // aw crap we lost a life, respawn if not at 0
             world[pacman.row][pacman.col] = 0;
-            if(pacman2.row !== 0 && pacman2.col !== 0){
-                world[pacman2.row][pacman2.col] = 0;
-            }
             world[ghost1.row][ghost1.col] = 0;
+            if(pacman2.active){
+                world[pacman2.row][pacman2.col] = 0;
+                setPacStart(pacman2);
+            }
             setPacStart(pacman);
             setGhostStart(ghost1);
             displayWorld(world);
@@ -375,7 +376,7 @@ $(document).ready(function(){
 
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row - 1][creature.col];
-            if(world[creature.row - 1][creature.col] == -1){
+            if(world[creature.row - 1][creature.col] < 0){
                 ghostHit();
             }
             world[creature.row][creature.col] = prev_id;
@@ -406,7 +407,7 @@ $(document).ready(function(){
         if(creature.id > 4){
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row + 1][creature.col];
-            if(world[creature.row + 1][creature.col] == -1){
+            if(world[creature.row + 1][creature.col] < 0){
                 ghostHit();
             }
             world[creature.row][creature.col] = prev_id;
@@ -437,7 +438,7 @@ $(document).ready(function(){
         if(creature.id > 4){
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row][creature.col - 1];
-            if(world[creature.row][creature.col - 1] == -1){
+            if(world[creature.row][creature.col - 1] < 0){
                 ghostHit();
             }
             world[creature.row][creature.col] = prev_id;
@@ -468,7 +469,7 @@ $(document).ready(function(){
         if(creature.id > 4){
             prev_id = creature.stored_id;
             creature.stored_id = world[creature.row][creature.col + 1];
-            if(world[creature.row][creature.col + 1] == -1){
+            if(world[creature.row][creature.col + 1] < 0){
                 ghostHit();
             }
             world[creature.row][creature.col] = prev_id;
