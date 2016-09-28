@@ -19,15 +19,20 @@ body{
         background: url('images/Dot-icon.png') no-repeat center;
         background-size: 16px 16px;
     }
-    div.pacman{
+    #pacman{
         background: url('images/pacman.gif') no-repeat center;
         background-size: 16px 16px;
     }
-    div.ghost{
+
+    #pacman2{
+        background: url('images/pacman.gif') no-repeat center;
+        background-size: 16px 16px;
+    }
+    .ghost{
         background: url('images/ghost-yellow.gif') no-repeat center;
         background-size: 16px 16px;
     }
-    div.ghostEdible{
+    .ghostEdible{
         background: url('images/ghost-blue.gif') no-repeat center;
         background-size: 16px 16px;
 
