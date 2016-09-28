@@ -157,7 +157,7 @@ $(document).ready(function(){
             displayWorld(world);
         }
         if(e.keyCode == 40){ //arrow down
-            if(pacman.row + 1 < world.length && checkDown(pacman,[-1,-2,2])){ // verify we can move and have not reached the end
+            if(pacman.row + 1 < world.length && checkDown(pacman,[-2,-1,2])){ // verify we can move and have not reached the end
                 if(!checkDown(pacman,[1]) || !checkDown(pacman,[4])){
                     updateScore(world[pacman.row + 1][pacman.col]);
                 } else if(world[pacman.row + 1][pacman.col] > 4){
@@ -484,9 +484,9 @@ $(document).ready(function(){
 
     // moves the creature from right side of map to left
     function superMoveRight(creature){
-        world[pacman.row][0] = -1;
-        world[pacman.row][pacman.col] = 0;
-        pacman.col = 0;
+        world[creature.row][0] = creature.id;
+        world[creature.row][creature.col] = 0;
+        creature.col = 0;
         displayWorld(world);
         rotatePacman(creature,0);
     }
