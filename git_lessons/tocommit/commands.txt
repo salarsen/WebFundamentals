@@ -1,0 +1,185 @@
+$ mkdir tocommit
+$ touch index.html
+$ touch styles.css
+$ ls
+index.html  styles.css
+
+$ atom .
+
+$ touch commands.txt
+
+$ ls
+commands.txt  index.html  styles.css
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git add *
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ ls
+commands.txt  index.html  styles.css
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   commands.txt
+        new file:   index.html
+        new file:   styles.css
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    ../../nextsteps/pacman/coin.gif
+        deleted:    ../../nextsteps/pacman/pacman.gif
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ../usingcommands/
+        ../../nextsteps/pacman.zip
+        ../../nextsteps/readme.md
+
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git commit -m "update html"
+[master 742ef89] update html
+ 3 files changed, 13 insertions(+)
+ create mode 100644 git_lessons/tocommit/commands.txt
+ create mode 100644 git_lessons/tocommit/index.html
+ create mode 100644 git_lessons/tocommit/styles.css
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git push -u origin master
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 615 bytes | 0 bytes/s, done.
+Total 7 (delta 1), reused 1 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local objects.
+To https://github.com/salarsen/WebFundamentals.git
+   e822124..742ef89  master -> master
+Branch master set up to track remote branch master from origin.
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git add *
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   styles.css
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    ../../nextsteps/pacman/coin.gif
+        deleted:    ../../nextsteps/pacman/pacman.gif
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ../usingcommands/
+        ../../nextsteps/pacman.zip
+        ../../nextsteps/readme.md
+
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git commit -m "update css"
+[master 32c50c6] update css
+ 1 file changed, 2 insertions(+)
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git push -u origin master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 386 bytes | 0 bytes/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/salarsen/WebFundamentals.git
+   742ef89..32c50c6  master -> master
+Branch master set up to track remote branch master from origin.
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git log
+commit 32c50c6296d0ea281a85b07a31e54b8c918d61c9
+Author: salarsen <larsen.spencer@gmail.com>
+Date:   Wed Sep 28 19:32:05 2016 -0700
+
+    update css
+
+commit 742ef89c761f4233228bea4bec54356747300d46
+Author: salarsen <larsen.spencer@gmail.com>
+Date:   Wed Sep 28 19:28:13 2016 -0700
+
+    update html
+
+commit 8d95732a91d88803e8fc94d7654bcc2db615c873
+Author: salarsen <larsen.spencer@gmail.com>
+:
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ ^C
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git revert -n 32c50c
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master|REVERTING)
+$ git pull
+Already up-to-date.
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master|REVERTING)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+You are currently reverting commit 32c50c6.
+  (all conflicts fixed: run "git revert --continue")
+  (use "git revert --abort" to cancel the revert operation)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   styles.css
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    ../../nextsteps/pacman/coin.gif
+        deleted:    ../../nextsteps/pacman/pacman.gif
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ../usingcommands/
+        ../../nextsteps/pacman.zip
+        ../../nextsteps/readme.md
+
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master|REVERTING)
+$ git commit -m "update css 2"
+[master 2f7029f] update css 2
+ 1 file changed, 2 deletions(-)
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$ git push -u origin master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 360 bytes | 0 bytes/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/salarsen/WebFundamentals.git
+   32c50c6..2f7029f  master -> master
+Branch master set up to track remote branch master from origin.
+
+Spencer's PC@Spencer MINGW64 ~/dropbox/dojo/webfundamentals/git_lessons/tocommit (master)
+$
