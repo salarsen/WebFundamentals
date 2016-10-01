@@ -280,16 +280,16 @@ $(document).ready(function(){
             ghost_num.direction = direction;
             ghost_num.movement_counter = 5;
         }
-        if(ghost_num.direction == 4 && checkDown(ghost_num,[0,2])){
+        if(ghost_num.direction == 4 && checkDown(ghost_num,[2])){
             ghost_num.movement_counter -= 1;
             moveDown(ghost_num);
-        } else if(ghost_num.direction == 3 && checkUp(ghost_num,[0,2])){
+        } else if(ghost_num.direction == 3 && checkUp(ghost_num,[2])){
             ghost_num.movement_counter -= 1;
             moveUp(ghost_num);
-        } else if(ghost_num.direction == 2 && checkRight(ghost_num,[0,2])){
+        } else if(ghost_num.direction == 2 && checkRight(ghost_num,[2])){
             ghost_num.movement_counter -= 1;
             moveRight(ghost_num);
-        } else if(ghost_num.direction == 1 && checkLeft(ghost_num,[0,2])){
+        } else if(ghost_num.direction == 1 && checkLeft(ghost_num,[2])){
             ghost_num.movement_counter -= 1;
             moveLeft(ghost_num);
         } else{
